@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "title": "Einstellungen",
+    "description": "Passen Sie Ihr Anomalieerkennungssystem an",
+    "sections": {
+      "general": {
+        "title": "Allgemeine Einstellungen",
+        "username": "Benutzername",
+        "email": "E-Mail",
+        "darkMode": "Dunkelmodus",
+        "language": "Sprache"
+      },
+      "notifications": {
+        "title": "Benachrichtigungseinstellungen",
+        "email": "E-Mail-Benachrichtigungen",
+        "push": "Push-Benachrichtigungen",
+        "slack": "Slack-Benachrichtigungen"
+      },
+      "security": {
+        "title": "Sicherheitseinstellungen",
+        "twoFactor": "Zwei-Faktor-Authentifizierung aktivieren",
+        "apiKey": "API-Schlüssel-Ablauf (Tage)",
+        "ipWhitelist": "IP-Whitelist",
+        "addIp": "IP-Adresse hinzufügen"
+      },
+      "data": {
+        "title": "Datenverwaltung",
+        "autoBackup": "Automatische Sicherung aktivieren",
+        "retention": "Datenaufbewahrungszeitraum (Tage)",
+        "compression": "Datenkomprimierung aktivieren"
+      }
+    },
+    "actions": {
+      "save": "Änderungen speichern",
+      "add": "Hinzufügen",
+      "remove": "Entfernen"
+    },
+    "messages": {
+      "success": "Einstellungen erfolgreich gespeichert!",
+      "error": "Fehler beim Speichern der Einstellungen"
+    }
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "error": "Ein Fehler ist aufgetreten",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "search": "Suchen"
+  }
+}

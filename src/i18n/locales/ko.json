@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "title": "설정",
+    "description": "이상 감지 시스템 사용자 정의",
+    "sections": {
+      "general": {
+        "title": "일반 설정",
+        "username": "사용자 이름",
+        "email": "이메일",
+        "darkMode": "다크 모드",
+        "language": "언어"
+      },
+      "notifications": {
+        "title": "알림 설정",
+        "email": "이메일 알림",
+        "push": "푸시 알림",
+        "slack": "Slack 알림"
+      },
+      "security": {
+        "title": "보안 설정",
+        "twoFactor": "2단계 인증 활성화",
+        "apiKey": "API 키 만료 (일)",
+        "ipWhitelist": "IP 화이트리스트",
+        "addIp": "IP 주소 추가"
+      },
+      "data": {
+        "title": "데이터 관리",
+        "autoBackup": "자동 백업 활성화",
+        "retention": "데이터 보존 기간 (일)",
+        "compression": "데이터 압축 활성화"
+      }
+    },
+    "actions": {
+      "save": "변경사항 저장",
+      "add": "추가",
+      "remove": "제거"
+    },
+    "messages": {
+      "success": "설정이 성공적으로 저장되었습니다!",
+      "error": "설정 저장 실패"
+    }
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "save": "저장",
+    "cancel": "취소",
+    "edit": "편집",
+    "delete": "삭제",
+    "search": "검색"
+  }
+}

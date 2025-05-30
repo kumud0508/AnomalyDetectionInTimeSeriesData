@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "title": "Settings",
+    "description": "Customize your anomaly detection system",
+    "sections": {
+      "general": {
+        "title": "General Settings",
+        "username": "Username",
+        "email": "Email",
+        "darkMode": "Dark Mode",
+        "language": "Language"
+      },
+      "notifications": {
+        "title": "Notification Preferences",
+        "email": "Email Notifications",
+        "push": "Push Notifications",
+        "slack": "Slack Notifications"
+      },
+      "security": {
+        "title": "Security Settings",
+        "twoFactor": "Enable Two-Factor Authentication",
+        "apiKey": "API Key Expiry (days)",
+        "ipWhitelist": "IP Whitelist",
+        "addIp": "Add IP address"
+      },
+      "data": {
+        "title": "Data Management",
+        "autoBackup": "Enable Automatic Backups",
+        "retention": "Data Retention Period (days)",
+        "compression": "Enable Data Compression"
+      }
+    },
+    "actions": {
+      "save": "Save Changes",
+      "add": "Add",
+      "remove": "Remove"
+    },
+    "messages": {
+      "success": "Settings saved successfully!",
+      "error": "Failed to save settings"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search"
+  }
+}

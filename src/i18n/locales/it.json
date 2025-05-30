@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "title": "Impostazioni",
+    "description": "Personalizza il tuo sistema di rilevamento anomalie",
+    "sections": {
+      "general": {
+        "title": "Impostazioni Generali",
+        "username": "Nome utente",
+        "email": "Email",
+        "darkMode": "Modalità scura",
+        "language": "Lingua"
+      },
+      "notifications": {
+        "title": "Preferenze Notifiche",
+        "email": "Notifiche email",
+        "push": "Notifiche push",
+        "slack": "Notifiche Slack"
+      },
+      "security": {
+        "title": "Impostazioni di Sicurezza",
+        "twoFactor": "Abilita autenticazione a due fattori",
+        "apiKey": "Scadenza chiave API (giorni)",
+        "ipWhitelist": "Whitelist IP",
+        "addIp": "Aggiungi indirizzo IP"
+      },
+      "data": {
+        "title": "Gestione Dati",
+        "autoBackup": "Abilita backup automatico",
+        "retention": "Periodo di conservazione dati (giorni)",
+        "compression": "Abilita compressione dati"
+      }
+    },
+    "actions": {
+      "save": "Salva modifiche",
+      "add": "Aggiungi",
+      "remove": "Rimuovi"
+    },
+    "messages": {
+      "success": "Impostazioni salvate con successo!",
+      "error": "Errore nel salvare le impostazioni"
+    }
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "edit": "Modifica",
+    "delete": "Elimina",
+    "search": "Cerca"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "title": "Paramètres",
+    "description": "Personnalisez votre système de détection d'anomalies",
+    "sections": {
+      "general": {
+        "title": "Paramètres Généraux",
+        "username": "Nom d'utilisateur",
+        "email": "Email",
+        "darkMode": "Mode sombre",
+        "language": "Langue"
+      },
+      "notifications": {
+        "title": "Préférences de Notification",
+        "email": "Notifications par email",
+        "push": "Notifications push",
+        "slack": "Notifications Slack"
+      },
+      "security": {
+        "title": "Paramètres de Sécurité",
+        "twoFactor": "Activer l'authentification à deux facteurs",
+        "apiKey": "Expiration de la clé API (jours)",
+        "ipWhitelist": "Liste blanche IP",
+        "addIp": "Ajouter une adresse IP"
+      },
+      "data": {
+        "title": "Gestion des Données",
+        "autoBackup": "Activer la sauvegarde automatique",
+        "retention": "Période de conservation des données (jours)",
+        "compression": "Activer la compression des données"
+      }
+    },
+    "actions": {
+      "save": "Enregistrer les modifications",
+      "add": "Ajouter",
+      "remove": "Supprimer"
+    },
+    "messages": {
+      "success": "Paramètres enregistrés avec succès !",
+      "error": "Échec de l'enregistrement des paramètres"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "search": "Rechercher"
+  }
+}

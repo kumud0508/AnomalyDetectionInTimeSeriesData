@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "title": "设置",
+    "description": "自定义异常检测系统",
+    "sections": {
+      "general": {
+        "title": "常规设置",
+        "username": "用户名",
+        "email": "电子邮件",
+        "darkMode": "深色模式",
+        "language": "语言"
+      },
+      "notifications": {
+        "title": "通知首选项",
+        "email": "电子邮件通知",
+        "push": "推送通知",
+        "slack": "Slack通知"
+      },
+      "security": {
+        "title": "安全设置",
+        "twoFactor": "启用双重认证",
+        "apiKey": "API密钥过期时间（天）",
+        "ipWhitelist": "IP白名单",
+        "addIp": "添加IP地址"
+      },
+      "data": {
+        "title": "数据管理",
+        "autoBackup": "启用自动备份",
+        "retention": "数据保留期（天）",
+        "compression": "启用数据压缩"
+      }
+    },
+    "actions": {
+      "save": "保存更改",
+      "add": "添加",
+      "remove": "移除"
+    },
+    "messages": {
+      "success": "设置保存成功！",
+      "error": "保存设置失败"
+    }
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "发生错误",
+    "save": "保存",
+    "cancel": "取消",
+    "edit": "编辑",
+    "delete": "删除",
+    "search": "搜索"
+  }
+}

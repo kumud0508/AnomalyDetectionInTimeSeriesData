@@ -1,0 +1,52 @@
+{
+  "settings": {
+    "title": "Configuración",
+    "description": "Personaliza tu sistema de detección de anomalías",
+    "sections": {
+      "general": {
+        "title": "Configuración General",
+        "username": "Nombre de usuario",
+        "email": "Correo electrónico",
+        "darkMode": "Modo oscuro",
+        "language": "Idioma"
+      },
+      "notifications": {
+        "title": "Preferencias de Notificación",
+        "email": "Notificaciones por correo",
+        "push": "Notificaciones push",
+        "slack": "Notificaciones de Slack"
+      },
+      "security": {
+        "title": "Configuración de Seguridad",
+        "twoFactor": "Habilitar autenticación de dos factores",
+        "apiKey": "Caducidad de la clave API (días)",
+        "ipWhitelist": "Lista blanca de IP",
+        "addIp": "Agregar dirección IP"
+      },
+      "data": {
+        "title": "Gestión de Datos",
+        "autoBackup": "Habilitar copias de seguridad automáticas",
+        "retention": "Período de retención de datos (días)",
+        "compression": "Habilitar compresión de datos"
+      }
+    },
+    "actions": {
+      "save": "Guardar cambios",
+      "add": "Agregar",
+      "remove": "Eliminar"
+    },
+    "messages": {
+      "success": "¡Configuración guardada con éxito!",
+      "error": "Error al guardar la configuración"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Se produjo un error",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "search": "Buscar"
+  }
+}
