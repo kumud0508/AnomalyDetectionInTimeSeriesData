@@ -1,9 +1,16 @@
 import React, { useRef, useState } from 'react';
-import { Upload, Trash2, Download, RefreshCw } from 'lucide-react';
+import { Upload, Trash2, Download, RefreshCw, AlertTriangle } from 'lucide-react';
 import { format } from 'date-fns';
 import { parseCSV, parseJSON } from '../utils/dataParsers';
+import { detectAnomalies, preprocessData } from '../utils/anomalyDetection';
 import { toast } from 'sonner';
 import { useAnomalyStore } from '../store/anomalyStore';
+
+interface DataPoint {
+  timestamp: string;
+  value: number;
+  [key: string]: any;
+}
 
 const sampleDatasets = [
   {
@@ -13,6 +20,7 @@ const sampleDatasets = [
     records: 15000,
     lastUpdated: new Date('2024-03-10'),
     status: 'active',
+    anomalies: 0,
   },
   {
     id: 'stock_prices',
@@ -21,6 +29,7 @@ const sampleDatasets = [
     records: 12000,
     lastUpdated: new Date('2024-03-09'),
     status: 'processing',
+    anomalies: 3,
   },
   {
     id: 'sensor_data',
@@ -29,6 +38,7 @@ const sampleDatasets = [
     records: 20000,
     lastUpdated: new Date('2024-03-08'),
     status: 'active',
+    anomalies: 1,
   },
 ];
 
@@ -47,7 +57,7 @@ function Datasets() {
 
     try {
       const content = await file.text();
-      let parsedData;
+      let parsedData: DataPoint[];
 
       if (file.name.toLowerCase().endsWith('.csv')) {
         parsedData = parseCSV(content);
@@ -57,8 +67,15 @@ function Datasets() {
         throw new Error('Unsupported file format. Please upload CSV or JSON files.');
       }
 
+      // Preprocess and detect anomalies
+      const processedValues = preprocessData(parsedData);
+      const anomalyResult = detectAnomalies(processedValues);
+
       // Update the global store with the new data
-      setData(parsedData);
+      setData(parsedData.map((point, index) => ({
+        ...point,
+        isAnomaly: anomalyResult.anomaly_indices.includes(index),
+      })));
 
       // Add the new dataset to the list
       const newDataset = {
@@ -68,9 +85,18 @@ function Datasets() {
         records: parsedData.length,
         lastUpdated: new Date(),
         status: 'active',
+        anomalies: anomalyResult.anomaly_indices.length,
       };
 
       setDatasets(prev => [newDataset, ...prev]);
+
+      // Show success toast with anomaly information
+      if (anomalyResult.anomalies_detected === "Yes") {
+        toast.warning('Anomalies Detected', {
+          description: anomalyResult.explanation,
+          icon: <AlertTriangle className="w-4 h-4" />,
+        });
+      }
 
       toast.success('Dataset uploaded successfully!', {
         description: `${parsedData.length} records loaded from ${file.name}`,
@@ -94,7 +120,6 @@ function Datasets() {
   };
 
   const handleDownload = (dataset: typeof datasets[0]) => {
-    // Implementation for downloading the dataset
     toast.success('Downloading dataset...', {
       description: `Preparing ${dataset.name} for download`,
     });
@@ -138,7 +163,7 @@ function Datasets() {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              {['Name', 'Size', 'Records', 'Last Updated', 'Status', 'Actions'].map((heading) => (
+              {['Name', 'Size', 'Records', 'Anomalies', 'Last Updated', 'Status', 'Actions'].map((heading) => (
                 <th
                   key={heading}
                   className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -159,6 +184,16 @@ function Datasets() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {dataset.records.toLocaleString()}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  {dataset.anomalies > 0 ? (
+                    <span className="text-red-600 font-medium flex items-center gap-1">
+                      <AlertTriangle className="w-4 h-4" />
+                      {dataset.anomalies}
+                    </span>
+                  ) : (
+                    <span className="text-green-600">None</span>
+                  )}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {format(dataset.lastUpdated, 'MMM d, yyyy')}
