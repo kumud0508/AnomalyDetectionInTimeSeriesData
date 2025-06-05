@@ -1,4 +1,4 @@
-import { zScore } from 'statistics.js';
+import { mean, standardDeviation } from './statistics';
 
 interface AnomalyResult {
   anomalies_detected: "Yes" | "No";
@@ -6,9 +6,24 @@ interface AnomalyResult {
   explanation: string;
 }
 
+// Calculate z-score manually since we removed the statistics.js dependency
+const calculateZScore = (value: number, values: number[]): number => {
+  const meanValue = mean(values);
+  const stdDev = standardDeviation(values);
+  return Math.abs((value - meanValue) / stdDev);
+};
+
 export const detectAnomalies = (data: number[]): AnomalyResult => {
+  if (data.length === 0) {
+    return {
+      anomalies_detected: "No",
+      anomaly_indices: [],
+      explanation: "No data points provided for analysis."
+    };
+  }
+
   // Calculate z-scores for the data points
-  const zScores = data.map(value => Math.abs(zScore(value, data)));
+  const zScores = data.map(value => calculateZScore(value, data));
   
   // Define threshold for anomaly detection (typically 3 standard deviations)
   const threshold = 3;
