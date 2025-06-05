@@ -1,4 +1,4 @@
-import { z-score } from 'statistics.js';
+import { zScore } from 'statistics.js';
 
 interface AnomalyResult {
   anomalies_detected: "Yes" | "No";
@@ -8,7 +8,7 @@ interface AnomalyResult {
 
 export const detectAnomalies = (data: number[]): AnomalyResult => {
   // Calculate z-scores for the data points
-  const zScores = data.map(value => Math.abs(z-score(value, data)));
+  const zScores = data.map(value => Math.abs(zScore(value, data)));
   
   // Define threshold for anomaly detection (typically 3 standard deviations)
   const threshold = 3;
